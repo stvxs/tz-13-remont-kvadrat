@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Рассчитайте предварительную стоимость и сроки ремонта квартиры.">
+  <title>Калькулятор ремонта - Квадрат Ремонт</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">КВАДРАТ РЕМОНТ</a>
+      <nav class="nav">
+        <a href="services.html">Услуги</a>
+        <a href="calculator.html">Калькулятор</a>
+        <a href="portfolio.html">Портфолио</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+      <a href="calculator.html" class="header-button">Рассчитать ремонт</a>
+    </div>
+  </header>
+
+  <main class="services-preview">
+    <div class="container">
+      <p class="section-label">ОНЛАЙН-КАЛЬКУЛЯТОР</p>
+      <h1>Рассчитайте стоимость ремонта</h1>
+      <p>Выберите параметры квартиры для предварительного расчёта.</p>
+
+      <form id="calculator-form" class="service-card">
+        <label for="repair-type">Тип ремонта</label>
+        <select id="repair-type" required>
+          <option value="4500">Косметический - 4 500 ₽/м²</option>
+          <option value="9000">Капитальный - 9 000 ₽/м²</option>
+          <option value="14000">Дизайнерский - 14 000 ₽/м²</option>
+        </select>
+
+        <br><br>
+
+        <label for="area">Площадь квартиры, м²</label>
+        <input id="area" type="number" min="1" max="500" value="40" required>
+
+        <br><br>
+
+        <label>
+          <input id="bathroom" type="checkbox">
+          Дополнительный ремонт санузла (+180 000 ₽ и 10 дней)
+        </label>
+
+        <br><br>
+
+        <label>
+          <input id="demolition" type="checkbox">
+          Демонтаж (+700 ₽/м²)
+        </label>
+
+        <br><br>
+
+        <button type="submit" class="button">Рассчитать</button>
+
+        <div id="result" aria-live="polite" style="margin-top: 25px;">
+          <h2>Результат появится здесь</h2>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 ООО «Квадрат Ремонт»</p>
+      <a href="privacy.html">Политика конфиденциальности</a>
+    </div>
+  </footer>
+
+  <script src="js/calculator.js"></script>
+</body>
+</html>

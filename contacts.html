@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Контактная информация компании Квадрат Ремонт.">
+  <title>Контакты - Квадрат Ремонт</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">КВАДРАТ РЕМОНТ</a>
+      <nav class="nav">
+        <a href="services.html">Услуги</a>
+        <a href="calculator.html">Калькулятор</a>
+        <a href="portfolio.html">Портфолио</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+      <a href="calculator.html" class="header-button">Рассчитать ремонт</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="services-preview">
+      <div class="container">
+        <p class="section-label">СВЯЖИТЕСЬ С НАМИ</p>
+        <h1>Контакты</h1>
+        <p>Оставьте заявку, чтобы обсудить будущий ремонт.</p>
+
+        <div class="service-cards">
+          <article class="service-card">
+            <h3>Телефон</h3>
+            <p>Контактный номер компании будет добавлен после согласования.</p>
+          </article>
+
+          <article class="service-card">
+            <h3>Электронная почта</h3>
+            <p>Адрес электронной почты будет добавлен после согласования.</p>
+          </article>
+
+          <article class="service-card">
+            <h3>Заявка на ремонт</h3>
+            <p>Оставьте свои контактные данные через форму ниже.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="calculator-preview">
+      <div class="container">
+        <h2>Оставить заявку</h2>
+        <p>Заполните форму, и мы получим ваше обращение.</p>
+
+        <form id="lead-form" class="service-card">
+          <label for="name">Ваше имя</label>
+          <br>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Введите имя"
+            required
+          >
+
+          <br><br>
+
+          <label for="email">Электронная почта</label>
+          <br>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="example@mail.ru"
+            required
+          >
+
+          <br><br>
+
+          <label for="direction">Направление ремонта</label>
+          <br>
+          <select id="direction" name="direction" required>
+            <option value="">Выберите тип ремонта</option>
+            <option value="Косметический ремонт">Косметический ремонт</option>
+            <option value="Капитальный ремонт">Капитальный ремонт</option>
+            <option value="Дизайнерский ремонт">Дизайнерский ремонт</option>
+          </select>
+
+          <br><br>
+
+          <button type="submit" class="button">
+            Отправить заявку
+          </button>
+
+          <p id="form-message" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 ООО «Квадрат Ремонт»</p>
+      <a href="privacy.html">Политика конфиденциальности</a>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/contact.js"></script>
+
+</body>
+</html>
