@@ -45,7 +45,7 @@ form.addEventListener('submit', function(event) {
     days += 10;
   }
 
-  const materials = Math.round(cost * 0.35);
+    const materials = Math.round(cost * 0.35);
 
   document.getElementById('result').innerHTML = `
     <h2>Результат расчёта</h2>
@@ -54,4 +54,13 @@ form.addEventListener('submit', function(event) {
     <p>Предварительный срок: <strong>${days} дней</strong></p>
     <p>Расчёт является предварительным и уточняется после осмотра объекта.</p>
   `;
+
+  trackEvent('calculate_repair', {
+    repair_price: repairPrice,
+    area: area,
+    bathroom: bathroom,
+    demolition: demolition,
+    estimated_cost: cost,
+    estimated_days: days
+  });
 });

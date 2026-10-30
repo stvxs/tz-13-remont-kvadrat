@@ -26,6 +26,7 @@ form.addEventListener('submit', async function (event) {
       body: params
     });
 
+    trackLead();
     window.location.href = 'thanks.html';
 
   } catch (error) {
