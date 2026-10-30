@@ -26,3 +26,23 @@ function trackMessengerClick(messenger) {
     messenger_name: messenger
   });
 }
+
+// Переходы между страницами сайта.
+function trackNavigationClick(pageName) {
+  trackEvent('navigation_click', {
+    page_name: pageName
+  });
+}
+
+// Отслеживание кликов по внутренним ссылкам.
+document.addEventListener('click', function(event) {
+  const link = event.target.closest('a');
+
+  if (!link) return;
+
+  const href = link.getAttribute('href');
+
+  if (href && href.endsWith('.html')) {
+    trackNavigationClick(href);
+  }
+});
