@@ -59,32 +59,32 @@
 
         <div class="service-cards">
 
-          <details class="service-card stage-card" data-stage="Знакомство и замер">
+          <details class="service-card stage-card" data-stage="stage_1">
             <summary><h3>01. Знакомство и замер</h3></summary>
             <p>Обсуждаем задачи, осматриваем помещение и выполняем замеры.</p>
           </details>
 
-          <details class="service-card stage-card" data-stage="Смета и планирование">
+          <details class="service-card stage-card" data-stage="stage_2">
             <summary><h3>02. Смета и планирование</h3></summary>
             <p>Определяем объём работ, рассчитываем стоимость и сроки.</p>
           </details>
 
-          <details class="service-card stage-card" data-stage="Подготовка">
+          <details class="service-card stage-card" data-stage="stage_3">
             <summary><h3>03. Подготовка</h3></summary>
             <p>Готовим помещение к началу ремонтных работ.</p>
           </details>
 
-          <details class="service-card stage-card" data-stage="Выполнение ремонта">
+          <details class="service-card stage-card" data-stage="stage_4">
             <summary><h3>04. Выполнение ремонта</h3></summary>
             <p>Проводим строительные и отделочные работы.</p>
           </details>
 
-          <details class="service-card stage-card" data-stage="Проверка качества">
+          <details class="service-card stage-card" data-stage="stage_5">
             <summary><h3>05. Проверка качества</h3></summary>
             <p>Проверяем выполненные работы и устраняем замечания.</p>
           </details>
 
-          <details class="service-card stage-card" data-stage="Сдача объекта">
+          <details class="service-card stage-card" data-stage="stage_6">
             <summary><h3>06. Сдача объекта</h3></summary>
             <p>Передаём готовое помещение заказчику.</p>
           </details>
@@ -116,7 +116,7 @@
       card.addEventListener('toggle', function() {
         if (card.open) {
           trackEvent('stage_open', {
-            stage_name: card.dataset.stage
+            stage_id: card.dataset.stage
           });
         }
       });
