@@ -3,20 +3,61 @@
 <html lang="ru">
 <head>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MNWBR6TDY7"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-MNWBR6TDY7');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MNWBR6TDY7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-MNWBR6TDY7');
+  </script>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Примеры выполненных ремонтов квартир компанией Квадрат Ремонт.">
+  <meta name="description" content="Примеры форматов ремонта квартир компании Квадрат Ремонт.">
   <title>Портфолио - Квадрат Ремонт</title>
   <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .gallery-image {
+      display: block;
+      width: 100%;
+      max-width: 900px;
+      height: auto;
+      margin: 40px auto 20px;
+      border-radius: 12px;
+      cursor: zoom-in;
+    }
+
+    .gallery-note {
+      text-align: center;
+      color: #666;
+      font-size: 14px;
+    }
+
+    .gallery-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      cursor: zoom-out;
+    }
+
+    .gallery-modal img {
+      max-width: 95%;
+      max-height: 90vh;
+      object-fit: contain;
+    }
+
+    .gallery-modal.open {
+      display: flex;
+    }
+  </style>
 </head>
+
 <body>
 
   <header class="header">
@@ -36,8 +77,8 @@
     <section class="services-preview">
       <div class="container">
         <p class="section-label">НАШИ ПРОЕКТЫ</p>
-        <h1>Примеры выполненных работ</h1>
-        <p>Примеры форматов ремонта квартир.</p>
+        <h1>Примеры форматов ремонта</h1>
+        <p>Иллюстрации интерьеров для демонстрации разных вариантов ремонта.</p>
 
         <div class="service-cards">
           <article class="service-card">
@@ -58,6 +99,18 @@
             <strong>Площадь: 76 м²</strong>
           </article>
         </div>
+
+        <img
+          src="img/portfolio-gallery.png"
+          alt="Иллюстрации интерьеров: гостиная, кухня и спальня"
+          class="gallery-image"
+          id="portfolio-gallery"
+        >
+
+        <p class="gallery-note">
+          Изображение является иллюстрацией, а не фотографией реальных объектов.
+          Нажмите на него, чтобы увеличить.
+        </p>
       </div>
     </section>
 
@@ -70,6 +123,10 @@
     </section>
   </main>
 
+  <div class="gallery-modal" id="gallery-modal">
+    <img src="img/portfolio-gallery.png" alt="Увеличенная иллюстрация интерьеров">
+  </div>
+
   <footer class="footer">
     <div class="container">
       <p>© 2026 ООО «Квадрат Ремонт»</p>
@@ -78,5 +135,24 @@
   </footer>
 
   <script src="js/analytics.js"></script>
+
+  <script>
+    const galleryImage = document.getElementById('portfolio-gallery');
+    const galleryModal = document.getElementById('gallery-modal');
+
+    galleryImage.addEventListener('click', function() {
+      galleryModal.classList.add('open');
+
+      trackEvent('gallery_view', {
+        project_id: 'portfolio-illustrations',
+        photo_index: 1
+      });
+    });
+
+    galleryModal.addEventListener('click', function() {
+      galleryModal.classList.remove('open');
+    });
+  </script>
+
 </body>
 </html>

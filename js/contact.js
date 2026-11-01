@@ -2,6 +2,13 @@
 const form = document.getElementById('lead-form');
 const message = document.getElementById('form-message');
 
+form.addEventListener('focusin', function() {
+  if (!form.dataset.started) {
+    form.dataset.started = 'true';
+    trackEvent('form_start');
+  }
+});
+
 form.addEventListener('submit', async function (event) {
   event.preventDefault();
 
@@ -27,9 +34,18 @@ form.addEventListener('submit', async function (event) {
     });
 
     trackLead();
+
+        trackEvent('form_submit', {
+      form_name: 'Форма заявки'
+    });
+
     window.location.href = 'thanks.html';
 
   } catch (error) {
+        trackEvent('form_error', {
+      error_message: 'Ошибка отправки заявки'
+    });
+    
     message.textContent = 'Не удалось отправить заявку. Попробуйте ещё раз.';
     button.disabled = false;
     button.textContent = 'Отправить заявку';

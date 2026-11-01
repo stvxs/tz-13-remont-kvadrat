@@ -3,19 +3,38 @@
 <html lang="ru">
 <head>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MNWBR6TDY7"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-MNWBR6TDY7');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MNWBR6TDY7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-MNWBR6TDY7');
+  </script>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Основные этапы ремонта квартиры под ключ.">
   <title>Этапы ремонта - Квадрат Ремонт</title>
   <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .stage-card {
+      cursor: pointer;
+    }
+
+    .stage-card summary {
+      cursor: pointer;
+      list-style-position: inside;
+    }
+
+    .stage-card summary h3 {
+      display: inline;
+    }
+
+    .stage-card p {
+      margin-top: 16px;
+    }
+  </style>
 </head>
 <body>
 
@@ -39,35 +58,37 @@
         <h1>Этапы ремонта квартиры</h1>
 
         <div class="service-cards">
-          <article class="service-card">
-            <h3>01. Знакомство и замер</h3>
+
+          <details class="service-card stage-card" data-stage="Знакомство и замер">
+            <summary><h3>01. Знакомство и замер</h3></summary>
             <p>Обсуждаем задачи, осматриваем помещение и выполняем замеры.</p>
-          </article>
+          </details>
 
-          <article class="service-card">
-            <h3>02. Смета и планирование</h3>
+          <details class="service-card stage-card" data-stage="Смета и планирование">
+            <summary><h3>02. Смета и планирование</h3></summary>
             <p>Определяем объём работ, рассчитываем стоимость и сроки.</p>
-          </article>
+          </details>
 
-          <article class="service-card">
-            <h3>03. Подготовка</h3>
+          <details class="service-card stage-card" data-stage="Подготовка">
+            <summary><h3>03. Подготовка</h3></summary>
             <p>Готовим помещение к началу ремонтных работ.</p>
-          </article>
+          </details>
 
-          <article class="service-card">
-            <h3>04. Выполнение ремонта</h3>
+          <details class="service-card stage-card" data-stage="Выполнение ремонта">
+            <summary><h3>04. Выполнение ремонта</h3></summary>
             <p>Проводим строительные и отделочные работы.</p>
-          </article>
+          </details>
 
-          <article class="service-card">
-            <h3>05. Проверка качества</h3>
+          <details class="service-card stage-card" data-stage="Проверка качества">
+            <summary><h3>05. Проверка качества</h3></summary>
             <p>Проверяем выполненные работы и устраняем замечания.</p>
-          </article>
+          </details>
 
-          <article class="service-card">
-            <h3>06. Сдача объекта</h3>
+          <details class="service-card stage-card" data-stage="Сдача объекта">
+            <summary><h3>06. Сдача объекта</h3></summary>
             <p>Передаём готовое помещение заказчику.</p>
-          </article>
+          </details>
+
         </div>
       </div>
     </section>
@@ -89,5 +110,18 @@
   </footer>
 
   <script src="js/analytics.js"></script>
+
+  <script>
+    document.querySelectorAll('.stage-card').forEach(function(card) {
+      card.addEventListener('toggle', function() {
+        if (card.open) {
+          trackEvent('stage_open', {
+            stage_name: card.dataset.stage
+          });
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>

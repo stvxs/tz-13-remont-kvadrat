@@ -1,6 +1,16 @@
 
 const form = document.getElementById('calculator-form');
 
+// Отслеживание выбора типа ремонта.
+const repairType = document.getElementById('repair-type');
+
+repairType.addEventListener('change', function() {
+  trackEvent('repair_type_select', {
+    repair_price: Number(repairType.value),
+    repair_type: repairType.options[repairType.selectedIndex].text
+  });
+});
+
 form.addEventListener('submit', function(event) {
   event.preventDefault();
 
@@ -55,7 +65,7 @@ form.addEventListener('submit', function(event) {
     <p>Расчёт является предварительным и уточняется после осмотра объекта.</p>
   `;
 
-  trackEvent('calculate_repair', {
+  trackEvent('repair_calc', {
     repair_price: repairPrice,
     area: area,
     bathroom: bathroom,

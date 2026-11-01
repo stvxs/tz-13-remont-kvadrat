@@ -1,4 +1,5 @@
-// Проверяем, доступна ли функция Google Analytics.
+
+// Проверяем, доступна ли Google Analytics.
 function trackEvent(eventName, eventParams = {}) {
   if (typeof gtag === 'function') {
     gtag('event', eventName, eventParams);
@@ -23,26 +24,31 @@ function trackContactClick(type) {
 // Нажатие на мессенджер.
 function trackMessengerClick(messenger) {
   trackEvent('messenger_click', {
-    messenger_name: messenger
+    messenger: messenger
   });
 }
 
-// Переходы между страницами сайта.
-function trackNavigationClick(pageName) {
-  trackEvent('navigation_click', {
-    page_name: pageName
-  });
-}
-
-// Отслеживание кликов по внутренним ссылкам.
+// Отслеживание переходов на внешние сайты.
 document.addEventListener('click', function(event) {
   const link = event.target.closest('a');
 
   if (!link) return;
 
-  const href = link.getAttribute('href');
+    // Отслеживание нажатий на основные CTA-кнопки.
+  if (link.matches('.button, .header-button')) {
+    trackEvent('cta_click', {
+      cta_text: link.textContent.trim(),
+      link_url: link.href
+    });
+  }
 
-  if (href && href.endsWith('.html')) {
-    trackNavigationClick(href);
+  const url = link.href;
+
+  if (url && link.hostname !== window.location.hostname) {
+    trackEvent('click', {
+      link_url: url,
+      outbound: true
+    });
   }
 });
+
