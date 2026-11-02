@@ -591,6 +591,22 @@ a {
   }
 }
 
+@media (max-width: 600px) {
+  .nav {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    justify-content: initial;
+    gap: 8px 12px;
+  }
+
+  .nav a {
+    min-width: 0;
+    font-size: 13px;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+  }
+}
+
 /* Понятная отметка полей, которые не прошли встроенную проверку формы. */
 .service-card input[aria-invalid="true"],
 .service-card select[aria-invalid="true"] {
