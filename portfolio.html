@@ -17,45 +17,6 @@
   <title>Портфолио - Квадрат Ремонт</title>
   <link rel="stylesheet" href="css/style.css">
 
-  <style>
-    .gallery-image {
-      display: block;
-      width: 100%;
-      max-width: 900px;
-      height: auto;
-      margin: 40px auto 20px;
-      border-radius: 12px;
-      cursor: zoom-in;
-    }
-
-    .gallery-note {
-      text-align: center;
-      color: #666;
-      font-size: 14px;
-    }
-
-    .gallery-modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 1000;
-      background: rgba(0, 0, 0, 0.9);
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      cursor: zoom-out;
-    }
-
-    .gallery-modal img {
-      max-width: 95%;
-      max-height: 90vh;
-      object-fit: contain;
-    }
-
-    .gallery-modal.open {
-      display: flex;
-    }
-  </style>
 </head>
 
 <body>
@@ -67,6 +28,8 @@
         <a href="services.html">Услуги</a>
         <a href="calculator.html">Калькулятор</a>
         <a href="portfolio.html">Портфолио</a>
+        <a href="stages.html">Этапы ремонта</a>
+        <a href="checklist.html">Чек-лист</a>
         <a href="contacts.html">Контакты</a>
       </nav>
       <a href="calculator.html" class="header-button">Рассчитать ремонт</a>
@@ -78,39 +41,59 @@
       <div class="container">
         <p class="section-label">НАШИ ПРОЕКТЫ</p>
         <h1>Примеры форматов ремонта</h1>
-        <p>Иллюстрации интерьеров для демонстрации разных вариантов ремонта.</p>
+        <p>Демонстрационные примеры ремонта. Все изображения сгенерированы и не являются фотографиями реальных объектов.</p>
 
-        <div class="service-cards">
-          <article class="service-card">
-            <h3>Косметический ремонт</h3>
-            <p>Обновление отделки жилого пространства.</p>
+        <div class="portfolio-filters" aria-label="Фильтры объектов">
+          <label for="object-type-filter">
+            Тип жилья
+            <select id="object-type-filter" data-event="portfolio_filter">
+              <option value="all">Все типы жилья</option>
+              <option value="new_build">Новостройка</option>
+              <option value="secondary">Вторичное жильё</option>
+            </select>
+          </label>
+          <label for="area-filter">
+            Площадь
+            <select id="area-filter" data-event="portfolio_filter">
+              <option value="all">Любая площадь</option>
+              <option value="up-to-50">До 50 м²</option>
+              <option value="51-70">51–70 м²</option>
+              <option value="over-70">Более 70 м²</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="service-cards portfolio-cards" id="portfolio-cards">
+          <article class="service-card portfolio-card" data-object-type="secondary" data-area="42" data-project-id="demo-cosmetic" data-repair-type="cosmetic">
+            <img src="img/portfolio-demo-cosmetic.webp" alt="AI-визуализация демонстрационного косметического ремонта" class="portfolio-card-image">
+            <p class="portfolio-demo-label">Демонстрационный пример · AI-визуализация</p>
+            <h2>Косметический ремонт</h2>
+            <p>Пример обновления отделки во вторичном жилье.</p>
             <strong>Площадь: 42 м²</strong>
+            <button type="button" class="button portfolio-open" data-open-project data-event="project_view">Посмотреть пример</button>
           </article>
 
-          <article class="service-card">
-            <h3>Капитальный ремонт</h3>
-            <p>Комплексное обновление квартиры.</p>
+          <article class="service-card portfolio-card" data-object-type="new_build" data-area="58" data-project-id="demo-capital" data-repair-type="capital">
+            <img src="img/portfolio-demo-capital.webp" alt="AI-визуализация демонстрационного капитального ремонта" class="portfolio-card-image">
+            <p class="portfolio-demo-label">Демонстрационный пример · AI-визуализация</p>
+            <h2>Капитальный ремонт</h2>
+            <p>Пример комплексной отделки в новостройке.</p>
             <strong>Площадь: 58 м²</strong>
+            <button type="button" class="button portfolio-open" data-open-project data-event="project_view">Посмотреть пример</button>
           </article>
 
-          <article class="service-card">
-            <h3>Дизайнерский ремонт</h3>
-            <p>Индивидуальное оформление интерьера.</p>
+          <article class="service-card portfolio-card" data-object-type="secondary" data-area="76" data-project-id="demo-designer" data-repair-type="designer">
+            <img src="img/portfolio-demo-designer.webp" alt="AI-визуализация демонстрационного дизайнерского ремонта" class="portfolio-card-image">
+            <p class="portfolio-demo-label">Демонстрационный пример · AI-визуализация</p>
+            <h2>Дизайнерский ремонт</h2>
+            <p>Пример индивидуального оформления вторичного жилья.</p>
             <strong>Площадь: 76 м²</strong>
+            <button type="button" class="button portfolio-open" data-open-project data-event="project_view">Посмотреть пример</button>
           </article>
         </div>
 
-        <img
-          src="img/portfolio-gallery.png"
-          alt="Иллюстрации интерьеров: гостиная, кухня и спальня"
-          class="gallery-image"
-          id="portfolio-gallery"
-        >
-
-        <p class="gallery-note">
-          Изображение является иллюстрацией, а не фотографией реальных объектов.
-          Нажмите на него, чтобы увеличить.
-        </p>
+        <p class="gallery-note" id="portfolio-empty" hidden>По выбранным фильтрам примеров не найдено.</p>
+        <p class="gallery-note">Характеристики карточек приведены для демонстрации работы фильтров и не описывают выполненные заказы.</p>
       </div>
     </section>
 
@@ -123,8 +106,22 @@
     </section>
   </main>
 
-  <div class="gallery-modal" id="gallery-modal">
-    <img src="img/portfolio-gallery.png" alt="Увеличенная иллюстрация интерьеров">
+  <div class="portfolio-modal" id="project-modal" role="dialog" aria-modal="true" aria-labelledby="project-modal-title" hidden>
+    <div class="portfolio-modal-panel">
+      <button type="button" class="portfolio-modal-close" data-close-project aria-label="Закрыть">×</button>
+      <h2 id="project-modal-title"></h2>
+      <p id="project-modal-description"></p>
+      <p id="project-modal-meta"></p>
+      <button type="button" class="portfolio-modal-image-button" aria-label="Увеличить иллюстрацию">
+        <img id="project-modal-image" src="" alt="" data-event="gallery_view">
+      </button>
+      <p class="gallery-note">Нажмите на иллюстрацию, чтобы увеличить. AI-визуализация демонстрационного примера.</p>
+    </div>
+  </div>
+
+  <div class="portfolio-image-modal" id="image-modal" hidden role="dialog" aria-modal="true" aria-label="Увеличенная AI-визуализация">
+    <button type="button" class="portfolio-modal-close" data-close-image aria-label="Закрыть">×</button>
+    <img id="image-modal-image" src="" alt="">
   </div>
 
   <footer class="footer">
@@ -137,20 +134,80 @@
   <script src="js/analytics.js"></script>
 
   <script>
-    const galleryImage = document.getElementById('portfolio-gallery');
-    const galleryModal = document.getElementById('gallery-modal');
+    const cards = Array.from(document.querySelectorAll('.portfolio-card'));
+    const objectTypeFilter = document.getElementById('object-type-filter');
+    const areaFilter = document.getElementById('area-filter');
+    const emptyMessage = document.getElementById('portfolio-empty');
+    const projectModal = document.getElementById('project-modal');
+    const imageModal = document.getElementById('image-modal');
+    const projectImage = document.getElementById('project-modal-image');
+    const enlargedImage = document.getElementById('image-modal-image');
+    let activeCard = null;
 
-    galleryImage.addEventListener('click', function() {
-      galleryModal.classList.add('open');
-
-      trackEvent('gallery_view', {
-        project_id: 'portfolio-illustrations',
-        photo_index: 1
+    function applyPortfolioFilters() {
+      let visibleCount = 0;
+      cards.forEach(function(card) {
+        const area = Number(card.dataset.area);
+        const typeMatches = objectTypeFilter.value === 'all' || card.dataset.objectType === objectTypeFilter.value;
+        const areaMatches = areaFilter.value === 'all'
+          || (areaFilter.value === 'up-to-50' && area <= 50)
+          || (areaFilter.value === '51-70' && area >= 51 && area <= 70)
+          || (areaFilter.value === 'over-70' && area > 70);
+        const visible = typeMatches && areaMatches;
+        card.hidden = !visible;
+        if (visible) visibleCount += 1;
       });
+
+      emptyMessage.hidden = visibleCount > 0;
+    }
+
+    function closeProjectModal() {
+      projectModal.hidden = true;
+      activeCard = null;
+    }
+
+    function closeImageModal() {
+      imageModal.hidden = true;
+    }
+
+    document.getElementById('portfolio-cards').addEventListener('click', function(event) {
+      const button = event.target.closest('[data-open-project]');
+      if (!button) return;
+
+      activeCard = button.closest('.portfolio-card');
+      const image = activeCard.querySelector('.portfolio-card-image');
+      document.getElementById('project-modal-title').textContent = activeCard.querySelector('h2').textContent;
+      document.getElementById('project-modal-description').textContent = activeCard.querySelectorAll('p')[1].textContent;
+      document.getElementById('project-modal-meta').textContent = activeCard.querySelector('strong').textContent + ' · ' + (activeCard.dataset.objectType === 'new_build' ? 'Новостройка' : 'Вторичное жильё');
+      projectImage.src = image.src;
+      projectImage.alt = image.alt;
+      projectImage.dataset.projectId = activeCard.dataset.projectId;
+      projectModal.hidden = false;
     });
 
-    galleryModal.addEventListener('click', function() {
-      galleryModal.classList.remove('open');
+    objectTypeFilter.addEventListener('change', applyPortfolioFilters);
+    areaFilter.addEventListener('change', applyPortfolioFilters);
+    document.querySelector('[data-close-project]').addEventListener('click', closeProjectModal);
+    projectModal.addEventListener('click', function(event) {
+      if (event.target === projectModal) closeProjectModal();
+    });
+
+    projectImage.addEventListener('click', function() {
+      if (!activeCard) return;
+      enlargedImage.src = projectImage.src;
+      enlargedImage.alt = projectImage.alt;
+      imageModal.hidden = false;
+    });
+
+    document.querySelector('[data-close-image]').addEventListener('click', closeImageModal);
+    imageModal.addEventListener('click', function(event) {
+      if (event.target === imageModal) closeImageModal();
+    });
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closeImageModal();
+        closeProjectModal();
+      }
     });
   </script>
 

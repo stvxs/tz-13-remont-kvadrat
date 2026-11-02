@@ -1,54 +1,143 @@
+// Сохраняем метки первой страницы визита, чтобы они дошли до формы после переходов по сайту.
+(function saveSessionAttribution() {
+  const storageKey = 'kvadrat_attribution';
+  const query = new URLSearchParams(window.location.search);
+  const taggedSource = query.get('utm_source');
 
-// Проверяем, доступна ли Google Analytics.
+  try {
+    if (taggedSource) {
+      sessionStorage.setItem(storageKey, JSON.stringify({
+        utm_source: taggedSource,
+        utm_medium: query.get('utm_medium') || 'none',
+        utm_campaign: query.get('utm_campaign') || 'not_set',
+        utm_content: query.get('utm_content') || 'not_set'
+      }));
+    } else if (!sessionStorage.getItem(storageKey)) {
+      sessionStorage.setItem(storageKey, JSON.stringify({
+        utm_source: 'direct',
+        utm_medium: 'none',
+        utm_campaign: 'not_set',
+        utm_content: 'not_set'
+      }));
+    }
+  } catch (error) {
+    // Если хранилище браузера недоступно, форма всё равно сможет отправить заявку.
+  }
+})();
+
 function trackEvent(eventName, eventParams = {}) {
   if (typeof gtag === 'function') {
     gtag('event', eventName, eventParams);
   }
 }
 
-// Отправка заявки.
-function trackLead() {
+function trackLead(lead) {
   trackEvent('generate_lead', {
-    event_category: 'form',
-    event_label: 'Форма заявки'
+    lead_repair_type: lead.repair_type,
+    area_m2: lead.area_m2,
+    lead_source: lead.utm_source
   });
 }
 
-// Нажатие на телефон или электронную почту.
 function trackContactClick(type) {
-  trackEvent('contact_click', {
-    contact_type: type
-  });
+  trackEvent('contact_click', { contact_type: type });
 }
 
-// Нажатие на мессенджер.
 function trackMessengerClick(messenger) {
-  trackEvent('messenger_click', {
-    messenger: messenger
-  });
+  trackEvent('messenger_click', { messenger: messenger });
 }
 
-// Отслеживание переходов на внешние сайты.
+// GA4 Enhanced Measurement collects outbound click and form_start.
+// form_submit is tracked in contact.js because the form is intercepted and sent with fetch.
 document.addEventListener('click', function(event) {
   const link = event.target.closest('a');
-
-  if (!link) return;
-
-    // Отслеживание нажатий на основные CTA-кнопки.
-  if (link.matches('.button, .header-button')) {
+  if (link && link.dataset.contactType) {
+    trackContactClick(link.dataset.contactType);
+  }
+  if (link && link.dataset.messenger) {
+    trackMessengerClick(link.dataset.messenger);
+  }
+  if (link && link.matches('.button, .header-button')) {
     trackEvent('cta_click', {
-      cta_text: link.textContent.trim(),
-      link_url: link.href
+      button_name: link.textContent.trim(),
+      page_section: link.closest('header') ? 'header' : 'content'
     });
   }
 
-  const url = link.href;
+  const promoButton = event.target.closest('[data-event="promo_copy"]');
+  if (promoButton && !promoButton.dataset.copying) {
+    const promoCode = promoButton.dataset.promoCode;
+    if (!promoCode) return;
 
-  if (url && link.hostname !== window.location.hostname) {
-    trackEvent('click', {
-      link_url: url,
-      outbound: true
+    promoButton.dataset.copying = 'true';
+    const status = document.getElementById('promo-copy-status');
+    const showCopyResult = function(copied) {
+      delete promoButton.dataset.copying;
+      if (status) {
+        status.textContent = copied
+          ? 'Промокод скопирован и сохранён для этой вкладки. В заявке он подставится автоматически.'
+          : 'Не удалось скопировать автоматически. Выделите и скопируйте код: ' + promoCode;
+      }
+      if (copied) {
+        try {
+          sessionStorage.setItem('kvadrat_promo_code', promoCode);
+        } catch (error) {}
+        trackEvent('promo_copy', { promo_code: promoCode });
+      }
+    };
+    const fallbackCopy = function() {
+      const temporaryInput = document.createElement('textarea');
+      temporaryInput.value = promoCode;
+      temporaryInput.setAttribute('readonly', '');
+      temporaryInput.style.position = 'fixed';
+      temporaryInput.style.opacity = '0';
+      document.body.appendChild(temporaryInput);
+      temporaryInput.select();
+      let copied = false;
+      try {
+        copied = document.execCommand('copy');
+      } catch (error) {
+        copied = false;
+      }
+      temporaryInput.remove();
+      showCopyResult(copied);
+    };
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(promoCode).then(function() {
+        showCopyResult(true);
+      }).catch(fallbackCopy);
+    } else {
+      fallbackCopy();
+    }
+  }
+
+  const projectButton = event.target.closest('[data-event="project_view"]');
+  if (projectButton) {
+    const card = projectButton.closest('.portfolio-card');
+    if (card) {
+      trackEvent('project_view', {
+        project_id: card.dataset.projectId,
+        repair_type: card.dataset.repairType
+      });
+    }
+  }
+
+  const galleryImage = event.target.closest('[data-event="gallery_view"]');
+  if (galleryImage && galleryImage.dataset.projectId) {
+    trackEvent('gallery_view', {
+      project_id: galleryImage.dataset.projectId,
+      photo_index: 1
     });
   }
 });
 
+document.addEventListener('change', function(event) {
+  const filter = event.target.closest('[data-event="portfolio_filter"]');
+  if (!filter) return;
+
+  const objectType = document.getElementById('object-type-filter');
+  trackEvent('portfolio_filter', {
+    object_type: objectType ? objectType.value : 'all'
+  });
+});

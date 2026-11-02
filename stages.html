@@ -34,6 +34,64 @@
     .stage-card p {
       margin-top: 16px;
     }
+
+    .stage-materials {
+      display: grid;
+      gap: 24px;
+      margin-top: 56px;
+    }
+
+    .stage-material-card {
+      padding: clamp(22px, 4vw, 40px);
+      border: 1px solid #e2e2df;
+      border-radius: 18px;
+      background: #fff;
+    }
+
+    .stage-material-card h2,
+    .stage-material-card h3 { margin-top: 0; }
+
+    .stage-material-card p { color: #65717d; }
+
+    .demo-player {
+      overflow: hidden;
+      border-radius: 16px;
+      background: #22262b;
+      color: #f7f8f9;
+    }
+
+    .demo-player svg { display: block; width: 100%; height: auto; }
+    .demo-scene[hidden] { display: none; }
+
+    .demo-player-controls {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 18px;
+      background: #171a1e;
+    }
+
+    .demo-player-controls button {
+      padding: 10px 16px;
+      border: 0;
+      border-radius: 8px;
+      background: #e77a16;
+      color: #fff;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .demo-player-controls input[type="range"] { flex: 1; accent-color: #e77a16; }
+
+    .demo-player-status { min-width: 88px; color: #c4cbd1; font-size: 14px; }
+
+    .demo-video-note { margin: 10px 0 0; font-size: 14px; }
+
+    @media (max-width: 600px) {
+      .demo-player-controls { flex-wrap: wrap; }
+      .demo-player-controls input[type="range"] { order: 3; flex-basis: 100%; }
+    }
   </style>
 </head>
 <body>
@@ -45,6 +103,8 @@
         <a href="services.html">Услуги</a>
         <a href="calculator.html">Калькулятор</a>
         <a href="portfolio.html">Портфолио</a>
+        <a href="stages.html" aria-current="page">Этапы ремонта</a>
+        <a href="checklist.html">Чек-лист</a>
         <a href="contacts.html">Контакты</a>
       </nav>
       <a href="calculator.html" class="header-button">Рассчитать ремонт</a>
@@ -66,29 +126,113 @@
 
           <details class="service-card stage-card" data-stage="stage_2">
             <summary><h3>02. Смета и планирование</h3></summary>
-            <p>Определяем объём работ, рассчитываем стоимость и сроки.</p>
+            <p>Согласуем перечень работ, стоимость и сроки ремонта.</p>
           </details>
 
           <details class="service-card stage-card" data-stage="stage_3">
-            <summary><h3>03. Подготовка</h3></summary>
-            <p>Готовим помещение к началу ремонтных работ.</p>
+            <summary><h3>03. Договор и график работ</h3></summary>
+            <p>Оформляем договор и закрепляем согласованную смету и порядок выполнения работ.</p>
           </details>
 
           <details class="service-card stage-card" data-stage="stage_4">
-            <summary><h3>04. Выполнение ремонта</h3></summary>
-            <p>Проводим строительные и отделочные работы.</p>
+            <summary><h3>04. Подготовка помещения</h3></summary>
+            <p>Защищаем поверхности и готовим квартиру к началу ремонта.</p>
           </details>
 
           <details class="service-card stage-card" data-stage="stage_5">
-            <summary><h3>05. Проверка качества</h3></summary>
-            <p>Проверяем выполненные работы и устраняем замечания.</p>
+            <summary><h3>05. Выполнение ремонта</h3></summary>
+            <p>Проводим строительные и отделочные работы.</p>
           </details>
 
           <details class="service-card stage-card" data-stage="stage_6">
-            <summary><h3>06. Сдача объекта</h3></summary>
-            <p>Передаём готовое помещение заказчику.</p>
+            <summary><h3>06. Контроль качества</h3></summary>
+            <p>Проверяем выполненные работы по этапам и исправляем замечания.</p>
           </details>
 
+          <details class="service-card stage-card" data-stage="stage_7">
+            <summary><h3>07. Финальная приёмка</h3></summary>
+            <p>Вместе с заказчиком осматриваем результат и фиксируем оставшиеся замечания.</p>
+          </details>
+
+          <details class="service-card stage-card" data-stage="stage_8">
+            <summary><h3>08. Передача объекта и гарантия</h3></summary>
+            <p>Передаём готовое помещение и документы, рассказываем об условиях трёхлетней гарантии на работы.</p>
+          </details>
+
+        </div>
+
+        <div class="stage-materials">
+          <article class="stage-material-card">
+            <h2>Демонстрационный образец договора</h2>
+            <p>Учебный макет структуры договора, спецификации работ и акта осмотра. В нём нет реальных реквизитов и согласованных условий.</p>
+            <a class="button" href="files/demo-contract-remont.pdf" download="demo-contract-remont.pdf">Скачать образец договора (PDF)</a>
+          </article>
+
+          <article class="stage-material-card">
+            <h2>Как мы принимаем электрику</h2>
+            <p>Короткий демонстрационный ролик о сверке с проектом, осмотре монтажа, проверках специалистом и фиксации результата.</p>
+            <div class="demo-player" data-duration="23" aria-label="Анимационный учебный ролик «Как мы принимаем электрику»">
+              <svg viewBox="0 0 960 540" role="img" aria-labelledby="electrical-video-title electrical-video-description">
+                <title id="electrical-video-title">Как мы принимаем электрику</title>
+                <desc id="electrical-video-description">Учебная анимация: сверка со схемой, осмотр монтажа специалистом, необходимые проверки и акт осмотра.</desc>
+                <rect width="960" height="540" fill="#22262b" />
+                <rect width="960" height="8" fill="#e77a16" />
+                <text x="58" y="68" fill="#c4cbd1" font-size="17" font-weight="700" font-family="Arial, sans-serif">КВАДРАТ РЕМОНТ · ДЕМОНСТРАЦИОННЫЙ РОЛИК</text>
+                <g class="demo-scene" data-scene="0">
+                  <text x="58" y="178" fill="#f7f8f9" font-size="42" font-weight="700" font-family="Arial, sans-serif">Как мы принимаем</text>
+                  <text x="58" y="232" fill="#e77a16" font-size="42" font-weight="700" font-family="Arial, sans-serif">электрику</text>
+                  <text x="58" y="302" fill="#c4cbd1" font-size="24" font-family="Arial, sans-serif">Порядок итоговой проверки работ</text>
+                  <rect x="620" y="130" width="250" height="235" rx="18" fill="#303840" stroke="#69747e" stroke-width="3" />
+                  <path d="M660 320 V225 H745 V170 M745 225 H820 V300" fill="none" stroke="#e77a16" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" />
+                  <circle cx="660" cy="225" r="11" fill="#6dc69b" /><circle cx="745" cy="170" r="11" fill="#6dc69b" /><circle cx="820" cy="300" r="11" fill="#6dc69b" />
+                </g>
+                <g class="demo-scene" data-scene="1" style="display:none">
+                  <text x="58" y="166" fill="#f7f8f9" font-size="40" font-weight="700" font-family="Arial, sans-serif">1. Сверяем с проектом</text>
+                  <text x="58" y="226" fill="#c4cbd1" font-size="23" font-family="Arial, sans-serif"><tspan x="58">Расположение розеток, выключателей</tspan><tspan x="58" dy="36">и выводов сверяем с согласованной схемой.</tspan></text>
+                  <rect x="610" y="145" width="265" height="210" rx="14" fill="#303840" stroke="#9aa4ad" stroke-width="3" />
+                  <path d="M742 146 V245 H875 M610 270 H742" fill="none" stroke="#9aa4ad" stroke-width="5" />
+                  <circle cx="675" cy="220" r="12" fill="#6dc69b" /><circle cx="802" cy="195" r="12" fill="#e77a16" /><circle cx="820" cy="310" r="12" fill="#6dc69b" />
+                </g>
+                <g class="demo-scene" data-scene="2" style="display:none">
+                  <text x="58" y="166" fill="#f7f8f9" font-size="40" font-weight="700" font-family="Arial, sans-serif">2. Осматриваем монтаж</text>
+                  <text x="58" y="226" fill="#c4cbd1" font-size="23" font-family="Arial, sans-serif"><tspan x="58">Специалист осматривает доступные элементы</tspan><tspan x="58" dy="36">и качество установки.</tspan></text>
+                  <rect x="700" y="135" width="150" height="220" rx="24" fill="#edf0f2" />
+                  <circle cx="750" cy="220" r="10" fill="#69747e" /><circle cx="800" cy="220" r="10" fill="#69747e" />
+                  <path d="M760 275 Q775 300 790 275" fill="none" stroke="#69747e" stroke-width="8" />
+                  <circle cx="680" cy="350" r="22" fill="#6dc69b" /><path d="M670 350 l8 8 15 -18" fill="none" stroke="#fff" stroke-width="5" />
+                </g>
+                <g class="demo-scene" data-scene="3" style="display:none">
+                  <text x="58" y="166" fill="#f7f8f9" font-size="40" font-weight="700" font-family="Arial, sans-serif">3. Проводим проверки</text>
+                  <text x="58" y="226" fill="#c4cbd1" font-size="23" font-family="Arial, sans-serif"><tspan x="58">Необходимые испытания выполняет</tspan><tspan x="58" dy="36">квалифицированный электрик.</tspan></text>
+                  <rect x="710" y="130" width="150" height="230" rx="20" fill="#edf0f2" />
+                  <rect x="735" y="162" width="100" height="54" rx="8" fill="#303840" />
+                  <text x="785" y="198" fill="#6dc69b" font-size="24" text-anchor="middle" font-weight="700" font-family="Arial, sans-serif">OK</text>
+                  <path d="M746 255 L720 338 M822 255 L850 338" stroke="#e77a16" stroke-width="7" />
+                  <text x="785" y="392" fill="#c4cbd1" font-size="15" text-anchor="middle" font-weight="700" font-family="Arial, sans-serif">
+                    <tspan x="785">РАБОТУ ВЫПОЛНЯЕТ</tspan>
+                    <tspan x="785" dy="20">СПЕЦИАЛИСТ</tspan>
+                  </text>
+                </g>
+                <g class="demo-scene" data-scene="4" style="display:none">
+                  <text x="58" y="166" fill="#f7f8f9" font-size="40" font-weight="700" font-family="Arial, sans-serif">4. Фиксируем результат</text>
+                  <text x="58" y="226" fill="#c4cbd1" font-size="23" font-family="Arial, sans-serif"><tspan x="58">Результаты осмотра и замечания</tspan><tspan x="58" dy="36">записываем и передаём заказчику.</tspan></text>
+                  <rect x="690" y="125" width="190" height="250" rx="14" fill="#edf0f2" />
+                  <rect x="720" y="158" width="130" height="12" rx="6" fill="#e77a16" />
+                  <path d="M730 220 h112 M730 270 h112 M730 320 h112" stroke="#aeb8c1" stroke-width="5" />
+                  <path d="M710 217 l8 8 15 -18 M710 267 l8 8 15 -18 M710 317 l8 8 15 -18" fill="none" stroke="#6dc69b" stroke-width="5" />
+                </g>
+                <rect x="58" y="468" width="844" height="7" rx="4" fill="#424950" />
+                <rect class="demo-player-progress" x="58" y="468" width="0" height="7" rx="4" fill="#e77a16" />
+                <text x="58" y="512" fill="#aab2b9" font-size="15" font-family="Arial, sans-serif">Учебная анимация · не инструкция для самостоятельных работ</text>
+              </svg>
+              <div class="demo-player-controls">
+                <button type="button" class="demo-player-toggle" aria-pressed="false">▶ Смотреть</button>
+                <input class="demo-player-seek" type="range" min="0" max="23" step="0.1" value="0" aria-label="Позиция ролика">
+                <span class="demo-player-status" aria-live="polite">00:00 / 00:23</span>
+              </div>
+            </div>
+            <p class="demo-video-note">Это авторская SVG-анимация для демонстрации процесса; видеозапись реального объекта не предоставлялась.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -121,6 +265,67 @@
         }
       });
     });
+
+    const player = document.querySelector('.demo-player');
+    if (player) {
+      const toggle = player.querySelector('.demo-player-toggle');
+      const seek = player.querySelector('.demo-player-seek');
+      const status = player.querySelector('.demo-player-status');
+      const progress = player.querySelector('.demo-player-progress');
+      const scenes = Array.from(player.querySelectorAll('.demo-scene'));
+      const duration = Number(player.dataset.duration) || 23;
+      let position = 0;
+      let startedAt = 0;
+      let frame = 0;
+      let playing = false;
+
+      function paint(nextPosition) {
+        position = Math.max(0, Math.min(duration, nextPosition));
+        seek.value = String(position);
+        const seconds = Math.floor(position);
+        status.textContent = `00:${String(seconds).padStart(2, '0')} / 00:${String(duration).padStart(2, '0')}`;
+        progress.setAttribute('width', String(844 * position / duration));
+        const index = Math.min(scenes.length - 1, Math.floor(position / (duration / scenes.length)));
+        scenes.forEach((scene, sceneIndex) => {
+          scene.style.display = sceneIndex === index ? '' : 'none';
+        });
+      }
+
+      function tick(now) {
+        if (!playing) return;
+        paint((now - startedAt) / 1000);
+        if (position >= duration) {
+          playing = false;
+          toggle.textContent = '↻ Просмотреть ещё раз';
+          toggle.setAttribute('aria-pressed', 'false');
+          return;
+        }
+        frame = requestAnimationFrame(tick);
+      }
+
+      toggle.addEventListener('click', function() {
+        if (playing) {
+          playing = false;
+          cancelAnimationFrame(frame);
+          toggle.textContent = '▶ Продолжить';
+          toggle.setAttribute('aria-pressed', 'false');
+          return;
+        }
+        if (position >= duration) paint(0);
+        playing = true;
+        startedAt = performance.now() - position * 1000;
+        toggle.textContent = 'Ⅱ Пауза';
+        toggle.setAttribute('aria-pressed', 'true');
+        trackEvent('video_play', { video_title: 'Как мы принимаем электрику' });
+        frame = requestAnimationFrame(tick);
+      });
+
+      seek.addEventListener('input', function() {
+        paint(Number(seek.value));
+        if (playing) startedAt = performance.now() - position * 1000;
+      });
+      paint(0);
+    }
   </script>
 
 </body>

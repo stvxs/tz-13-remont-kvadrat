@@ -203,6 +203,283 @@ a {
   font-weight: 800;
 }
 
+.service-card a.button {
+  color: var(--white);
+}
+
+.contact-details {
+  margin-top: 28px;
+  max-width: 760px;
+}
+
+.contact-details h2 {
+  margin-bottom: 18px;
+}
+
+.contact-details p {
+  margin-bottom: 12px;
+}
+
+.contact-details .demo-contact-note,
+.demo-contact-note {
+  margin-top: 20px;
+  color: #686d73;
+  font-size: 0.9em;
+}
+
+/* Чек-лист приёмки: отдельная колонка списка с удобными зонами отметки. */
+.checklist-actions {
+  margin: 28px 0;
+}
+
+.checklist-groups {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 28px;
+}
+
+.checklist-group {
+  padding: 28px;
+  background: var(--white);
+  border: 1px solid #e8e8e5;
+  border-radius: 12px;
+}
+
+.checklist-group h2,
+.checklist-promo h2 {
+  margin: 0 0 18px;
+  font-size: 24px;
+}
+
+.checklist-group ol {
+  margin: 0;
+  padding-left: 28px;
+}
+
+.checklist-group li {
+  padding: 0 0 16px 6px;
+  color: #4f555c;
+  line-height: 1.55;
+}
+
+.checklist-group li:last-child {
+  padding-bottom: 0;
+}
+
+.checklist-group label {
+  cursor: pointer;
+}
+
+.checklist-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin: 0 8px 0 0;
+  vertical-align: -3px;
+  accent-color: var(--orange);
+}
+
+.checklist-promo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 28px;
+  padding: 28px;
+  background: var(--white);
+  border: 1px solid #e8e8e5;
+  border-radius: 12px;
+}
+
+.checklist-promo p {
+  margin: 0 0 16px;
+  color: #686d73;
+}
+
+.checklist-promo .checklist-status {
+  min-height: 1.4em;
+  margin: 10px 0 0;
+}
+
+.checklist-promo .button {
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+}
+
+.checklist-promo a.button {
+  flex: 0 0 auto;
+  color: var(--white);
+}
+
+/* Портфолио: demonstration cards, filters and image dialogs. */
+.portfolio-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin: 28px 0;
+}
+
+.portfolio-filters label {
+  display: grid;
+  gap: 8px;
+  color: var(--dark);
+  font-weight: 700;
+}
+
+.portfolio-filters select {
+  min-width: 210px;
+  padding: 12px 14px;
+  border: 1px solid #d7d8d4;
+  border-radius: 8px;
+  background: var(--white);
+  color: var(--dark);
+  font: inherit;
+}
+
+.portfolio-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.portfolio-card[hidden] {
+  display: none;
+}
+
+.portfolio-card-image {
+  display: block;
+  width: calc(100% + 60px);
+  max-width: none;
+  aspect-ratio: 4 / 3;
+  margin: -30px -30px 20px;
+  border-radius: 10px 10px 0 0;
+  object-fit: cover;
+}
+
+.portfolio-demo-label {
+  color: var(--orange) !important;
+  font-size: 13px;
+  font-weight: 800;
+  margin-bottom: 10px !important;
+}
+
+.portfolio-card h2 {
+  font-size: 21px;
+  margin: 0 0 12px;
+}
+
+.portfolio-card p:not(.portfolio-demo-label) {
+  margin-bottom: 14px;
+}
+
+.portfolio-card strong {
+  margin-bottom: 20px;
+}
+
+.portfolio-open {
+  margin-top: auto;
+  border: 0;
+  cursor: pointer;
+}
+
+.gallery-note {
+  color: #686d73;
+  text-align: center;
+  margin-top: 24px;
+}
+
+.portfolio-modal,
+.portfolio-image-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(34, 37, 42, 0.82);
+}
+
+.portfolio-modal[hidden],
+.portfolio-image-modal[hidden] {
+  display: none;
+}
+
+.portfolio-modal-panel {
+  position: relative;
+  width: min(760px, 100%);
+  max-height: 90vh;
+  overflow: auto;
+  padding: 28px;
+  border-radius: 12px;
+  background: var(--white);
+}
+
+.portfolio-modal-panel h2 {
+  margin: 0 48px 12px 0;
+}
+
+.portfolio-modal-panel > p {
+  color: #686d73;
+}
+
+.portfolio-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  z-index: 1;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--dark);
+  font-size: 32px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.portfolio-modal-image-button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.portfolio-modal-image-button img {
+  display: block;
+  width: 100%;
+  max-height: 60vh;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.portfolio-image-modal {
+  z-index: 1010;
+  cursor: zoom-out;
+}
+
+.portfolio-image-modal img {
+  max-width: min(1100px, 96vw);
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+@media (max-width: 800px) {
+  .portfolio-card-image {
+    width: calc(100% + 40px);
+    margin: -20px -20px 18px;
+  }
+
+  .portfolio-modal-panel {
+    padding: 22px;
+  }
+}
+
 /* Блок калькулятора */
 
 .calculator-preview {
@@ -256,6 +533,15 @@ a {
     grid-template-columns: 1fr;
   }
 
+  .checklist-groups {
+    grid-template-columns: 1fr;
+  }
+
+  .checklist-promo {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
   .hero {
     padding: 75px 0;
   }
@@ -267,4 +553,18 @@ a {
   .hero-info {
     gap: 25px;
   }
+}
+
+/* Понятная отметка полей, которые не прошли встроенную проверку формы. */
+.service-card input[aria-invalid="true"],
+.service-card select[aria-invalid="true"] {
+  border: 2px solid #b42318 !important;
+  background-color: #fff1f0;
+  outline: 2px solid rgba(180, 35, 24, 0.35) !important;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 3px rgba(180, 35, 24, 0.12);
+}
+
+#form-message:empty {
+  display: none;
 }

@@ -1,15 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MNWBR6TDY7"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-MNWBR6TDY7');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MNWBR6TDY7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-MNWBR6TDY7');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Контактная информация компании Квадрат Ремонт.">
@@ -17,7 +16,6 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
   <header class="header">
     <div class="container header-inner">
       <a href="index.html" class="logo">КВАДРАТ РЕМОНТ</a>
@@ -25,6 +23,8 @@
         <a href="services.html">Услуги</a>
         <a href="calculator.html">Калькулятор</a>
         <a href="portfolio.html">Портфолио</a>
+        <a href="stages.html">Этапы ремонта</a>
+        <a href="checklist.html">Чек-лист</a>
         <a href="contacts.html">Контакты</a>
       </nav>
       <a href="calculator.html" class="header-button">Рассчитать ремонт</a>
@@ -35,73 +35,78 @@
     <section class="services-preview">
       <div class="container">
         <p class="section-label">СВЯЖИТЕСЬ С НАМИ</p>
-        <h1>Контакты</h1>
-        <p>Оставьте заявку, чтобы обсудить будущий ремонт.</p>
-
-        <div class="service-cards">
-          <article class="service-card">
-            <h3>Телефон</h3>
-            <p>Контактный номер компании будет добавлен после согласования.</p>
-          </article>
-
-          <article class="service-card">
-            <h3>Электронная почта</h3>
-            <p>Адрес электронной почты будет добавлен после согласования.</p>
-          </article>
-
-          <article class="service-card">
-            <h3>Заявка на ремонт</h3>
-            <p>Оставьте свои контактные данные через форму ниже.</p>
-          </article>
-        </div>
+        <h1>Заявка на выезд сметчика</h1>
+        <p>Оставьте контакты и параметры квартиры. Мы свяжемся с вами, чтобы согласовать выезд и подготовить точную смету.</p>
+        <article class="service-card contact-details">
+          <h2>Контакты компании</h2>
+          <p><strong>ООО «Квадрат Ремонт»</strong></p>
+          <p>Адрес: 614 150, г. Новоёворск, ул. Строителей, д. 44, офис 12</p>
+          <p>ИНН 9913448120 · КПП 991301001 · ОГРН 1189900044813</p>
+          <p>Телефон: <a href="tel:+79003131331" data-contact-type="phone">+7 (900) 313-13-31</a></p>
+          <p>Сметный отдел: <a href="mailto:smeta@kvadrat-remont.example" data-contact-type="email">smeta@kvadrat-remont.example</a></p>
+          <p>Руководитель отдела продаж — Широкова Ольга Николаевна</p>
+          <p>Почта отдела продаж: <a href="mailto:sales@kvadrat-remont.example" data-contact-type="email">sales@kvadrat-remont.example</a></p>
+          <p>Telegram: <a href="https://t.me/kvadrat_sales" data-messenger="telegram" target="_blank" rel="noopener noreferrer">@kvadrat_sales</a></p>
+          <p class="demo-contact-note">Контактные данные и реквизиты вымышлены согласно учебному техническому заданию.</p>
+        </article>
       </div>
     </section>
 
     <section class="calculator-preview">
       <div class="container">
-        <h2>Оставить заявку</h2>
-        <p>Заполните форму, и мы получим ваше обращение.</p>
-
+        <h2>Параметры заявки</h2>
         <form id="lead-form" class="service-card">
-          <label for="name">Ваше имя</label>
-          <br>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Введите имя"
-            required
-          >
+          <input type="hidden" name="request_id" id="request-id">
+          <input type="hidden" name="utm_source" id="utm-source">
+          <input type="hidden" name="utm_medium" id="utm-medium">
+          <input type="hidden" name="utm_campaign" id="utm-campaign">
+          <input type="hidden" name="utm_content" id="utm-content">
 
+          <label for="name">Ваше имя</label><br>
+          <input type="text" id="name" name="name" minlength="2" maxlength="60" autocomplete="name" required>
           <br><br>
 
-          <label for="email">Электронная почта</label>
-          <br>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="example@mail.ru"
-            required
-          >
-
+          <label for="phone">Телефон</label><br>
+          <input type="tel" id="phone" name="phone" inputmode="tel" autocomplete="tel" placeholder="+79991234567" pattern="\+7[0-9]{10}" title="Введите номер в формате +7 и ещё 10 цифр" required>
           <br><br>
 
-          <label for="direction">Направление ремонта</label>
-          <br>
-          <select id="direction" name="direction" required>
+          <label for="email">Электронная почта (необязательно)</label><br>
+          <input type="email" id="email" name="email" autocomplete="email" placeholder="example@mail.ru">
+          <br><br>
+
+          <label for="promo-code">Промокод (необязательно)</label><br>
+          <input type="text" id="promo-code" name="promo_code" maxlength="20" autocomplete="off" placeholder="Например, SMETA24">
+          <br><br>
+
+          <label for="repair-type">Тип ремонта</label><br>
+          <select id="repair-type" name="repair_type" required>
             <option value="">Выберите тип ремонта</option>
-            <option value="Косметический ремонт">Косметический ремонт</option>
-            <option value="Капитальный ремонт">Капитальный ремонт</option>
-            <option value="Дизайнерский ремонт">Дизайнерский ремонт</option>
+            <option value="cosmetic">Косметический</option>
+            <option value="capital">Капитальный</option>
+            <option value="designer">Дизайнерский</option>
+            <option value="bathroom">Ремонт санузла</option>
           </select>
-
           <br><br>
 
-          <button type="submit" class="button">
-            Отправить заявку
-          </button>
+          <label for="area">Площадь квартиры, м²</label><br>
+          <input type="number" id="area" name="area_m2" min="10" max="300" step="0.1" inputmode="decimal" required>
+          <br><br>
 
+          <label for="object-type">Тип жилья</label><br>
+          <select id="object-type" name="object_type" required>
+            <option value="">Выберите тип жилья</option>
+            <option value="new_build">Новостройка</option>
+            <option value="secondary">Вторичное жильё</option>
+          </select>
+          <br><br>
+
+          <label>
+            <input type="checkbox" id="consent" name="consent" required>
+            Согласен(на) на обработку персональных данных согласно <a href="privacy.html">политике конфиденциальности</a>
+          </label>
+          <br><br>
+
+          <button type="submit" class="button">Отправить заявку</button>
           <p id="form-message" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -118,6 +123,5 @@
   <script src="js/analytics.js"></script>
   <script src="js/config.js"></script>
   <script src="js/contact.js"></script>
-
 </body>
 </html>

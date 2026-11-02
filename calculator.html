@@ -26,6 +26,8 @@
         <a href="services.html">Услуги</a>
         <a href="calculator.html">Калькулятор</a>
         <a href="portfolio.html">Портфолио</a>
+        <a href="stages.html">Этапы ремонта</a>
+        <a href="checklist.html">Чек-лист</a>
         <a href="contacts.html">Контакты</a>
       </nav>
       <a href="calculator.html" class="header-button">Рассчитать ремонт</a>
@@ -41,6 +43,7 @@
       <form id="calculator-form" class="service-card">
         <label for="repair-type">Тип ремонта</label>
         <select id="repair-type" required>
+          <option value="" disabled selected>Выберите тип ремонта</option>
           <option value="4500">Косметический - 4 500 ₽/м²</option>
           <option value="9000">Капитальный - 9 000 ₽/м²</option>
           <option value="14000">Дизайнерский - 14 000 ₽/м²</option>
@@ -49,7 +52,7 @@
         <br><br>
 
         <label for="area">Площадь квартиры, м²</label>
-        <input id="area" type="number" min="1" max="500" value="40" required>
+        <input id="area" type="number" min="10" max="300" value="40" required>
 
         <br><br>
 

@@ -26,6 +26,8 @@
         <a href="services.html">Услуги</a>
         <a href="calculator.html">Калькулятор</a>
         <a href="portfolio.html">Портфолио</a>
+        <a href="stages.html">Этапы ремонта</a>
+        <a href="checklist.html">Чек-лист</a>
         <a href="contacts.html">Контакты</a>
       </nav>
     </div>
@@ -36,6 +38,7 @@
       <div class="container">
         <p class="section-label">ЗАЯВКА ПРИНЯТА</p>
         <h1>Спасибо за обращение!</h1>
+        <p>Номер вашей заявки: <strong id="request-number">получен</strong></p>
         <p>Ваше обращение успешно отправлено. Мы свяжемся с вами после обработки заявки.</p>
 
         <br>
@@ -53,5 +56,9 @@
   </footer>
 
   <script src="js/analytics.js"></script>
+  <script>
+    const requestId = sessionStorage.getItem("kvadrat_last_request_id");
+    if (requestId) document.getElementById("request-number").textContent = requestId;
+  </script>
 </body>
 </html>
