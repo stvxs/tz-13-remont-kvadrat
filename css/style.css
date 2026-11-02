@@ -227,6 +227,43 @@ a {
   font-size: 0.9em;
 }
 
+/* Make lead form controls comfortable to use on a narrow touch screen. */
+#lead-form > input:not([type="hidden"]):not([type="checkbox"]),
+#lead-form > select {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid #d7d8d4;
+  border-radius: 6px;
+  background: var(--white);
+  color: var(--graphite);
+  font: inherit;
+  font-size: 16px;
+}
+
+#lead-form .consent-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  min-height: 44px;
+  cursor: pointer;
+}
+
+#lead-form .consent-label > span {
+  display: block;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+#lead-form input[type="checkbox"] {
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+  margin: 2px 0 0;
+  accent-color: var(--orange);
+}
+
 /* Чек-лист приёмки: отдельная колонка списка с удобными зонами отметки. */
 .checklist-actions {
   margin: 28px 0;
