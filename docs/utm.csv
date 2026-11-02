@@ -1,0 +1,13 @@
+number,channel,placement,utm_source,utm_medium,utm_campaign,utm_content,utm_term,destination_page,short_url,publication_url,link_checked_at,published_at,status
+U-01,Instagram,ссылка в шапке профиля,instagram,social,estimate_nov_2026,bio,,index.html,,,,,draft_not_published
+U-02,Instagram,автоответ под Reel (ManyChat),instagram,social,estimate_nov_2026,reel_timelapse_01,,checklist.html,,,,,draft_not_published
+U-03,Instagram,"автоответ, ветка «САНУЗЕЛ»",instagram,social,bathroom_nov_2026,reel_timelapse_01_bath,,services.html#bathroom,,,,,draft_not_published
+U-04,Instagram,ссылка-стикер в Stories,instagram,social,estimate_nov_2026,,,calculator.html,,,,,draft_fill_required
+U-05,ВКонтакте,пост в сообществе,vk,social,estimate_nov_2026,post_01,,portfolio.html,,,,,draft_not_published
+U-06,ВКонтакте,пост в группе новостройки,vk,social,estimate_nov_2026,,,calculator.html,,,,,draft_fill_required
+U-07,Telegram,пост в канале,telegram,social,estimate_nov_2026,post_01,,calculator.html,,,,,draft_not_published
+U-08,Telegram,сообщение в чате дома,telegram,,estimate_nov_2026,house_chat,,index.html,,,,,draft_fill_required
+U-09,YouTube,"описание видео «Ремонт двушки за 60 дней»",youtube,,,video_2room,,portfolio.html,,,,,draft_fill_required
+U-10,Блогер 1,ссылка у партнёра,,affiliate,estimate_nov_2026,,,index.html,,,,,draft_fill_required
+U-11,Блогер 2,ссылка у риелтора-партнёра,,affiliate,estimate_nov_2026,,,calculator.html,,,,,draft_fill_required
+U-12,Баннер,QR-код на баннере у новостройки,banner_qr,qr,estimate_nov_2026,newbuild_banner,,calculator.html,,,,,draft_not_published

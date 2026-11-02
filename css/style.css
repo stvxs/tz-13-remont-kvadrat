@@ -503,12 +503,48 @@ a {
 .footer .container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 20px;
   flex-wrap: wrap;
 }
 
 .footer a {
   color: #c7c9cc;
+}
+
+.footer-social,
+.thanks-social {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-social {
+  font-size: 14px;
+}
+
+.footer-social span {
+  color: #c7c9cc;
+}
+
+.thanks-social {
+  margin-top: 24px;
+}
+
+.thanks-social p {
+  flex-basis: 100%;
+  margin-bottom: 0;
+  color: #59636e;
+  font-weight: 600;
+}
+
+.thanks-social + .button {
+  margin-top: 16px;
+}
+
+.thanks-social a {
+  color: var(--orange);
 }
 
 /* Адаптация для телефонов */

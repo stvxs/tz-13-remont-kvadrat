@@ -57,6 +57,12 @@ document.addEventListener('click', function(event) {
   if (link && link.dataset.messenger) {
     trackMessengerClick(link.dataset.messenger);
   }
+  if (link && link.dataset.social) {
+    trackEvent('social_click', {
+      network: link.dataset.social,
+      page_section: link.dataset.pageSection || (link.closest('footer') ? 'footer' : 'content')
+    });
+  }
   if (link && link.matches('.button, .header-button')) {
     trackEvent('cta_click', {
       button_name: link.textContent.trim(),
