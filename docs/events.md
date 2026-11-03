@@ -3,7 +3,7 @@
 
 | Событие | Назначение | Статус |
 |---|---|---|
-| page_view | Просмотр страницы | DebugView подтвердил на главной `page_location=http://localhost/index.html`, `page_title=Квадрат Ремонт - ремонт квартир под ключ`; на калькуляторе `page_location=http://localhost/calculator.html`, `page_title=Калькулятор ремонта - Квадрат Ремонт` |
+| page_view | Просмотр страницы | DebugView подтвердил главную (`http://localhost/index.html`, `Квадрат Ремонт - ремонт квартир под ключ`), калькулятор (`http://localhost/calculator.html`, `Калькулятор ремонта - Квадрат Ремонт`) и контакты (`http://localhost/contacts.html`, `Контакты - Квадрат Ремонт`); подтверждения сохранены в `screens/ga4/` |
 | scroll | Прокрутка страницы | Проверено в GA4 DebugView: `percent_scrolled=90` |
 | click | Переход по внешней ссылке | DebugView подтвердил автоматическое событие Telegram-ссылки: `link_url=https://t.me/kvadrat_sales`, `outbound=true`; ручная отправка удалена во избежание дублей |
 | file_download | Скачивание файла | DebugView подтвердил PDF чек-листа: `file_name=/files/checklist-priemka-25-points.pdf`, `file_extension=pdf`; отдельно подтверждалось событие скачивания PDF договора. |
@@ -44,4 +44,4 @@
 
 В `screens/ga4/` сохранены отобранные кадры DebugView по `page_view` главной и калькулятора, `scroll`, калькулятору, пути формы, промокоду, портфолио, этапам, скачиванию PDF и кликам. Несколько значений параметров показаны на отдельных кадрах одного и того же сценария; их список дан в `screens/README.md`.
 
-Для страницы контактов кадра DebugView `page_view` с раскрытыми `page_location` и `page_title` в архиве нет. Проверка не закрыта, ожидаемые значения не записываются как подтверждённые. Скриншоты Google Sheets и Apps Script из архива не добавлены: первые показывают значения строк, вторые — URL/идентификаторы развёртывания.
+Для страницы контактов пользователь прислал кадры DebugView `page_view`; подтверждены `page_location=http://localhost/contacts.html` и `page_title=Контакты - Квадрат Ремонт`. Снимки: `screens/ga4/debugview-page-view-contacts-location.png` и `screens/ga4/debugview-page-view-contacts-title.png`. Скриншоты Google Sheets и Apps Script из архива не добавлены: первые показывают значения строк, вторые — URL/идентификаторы развёртывания.

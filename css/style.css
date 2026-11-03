@@ -3,6 +3,7 @@
 
 :root {
   --orange: #E07B1F;
+  --orange-contrast: #A94700;
   --concrete: #9AA0A6;
   --light: #F6F6F4;
   --graphite: #22252A;
@@ -64,13 +65,13 @@ a {
 }
 
 .nav a:hover {
-  color: var(--orange);
+  color: var(--orange-contrast);
 }
 
 .header-button,
 .button {
   display: inline-block;
-  background: var(--orange);
+  background: var(--orange-contrast);
   color: var(--white);
   padding: 13px 22px;
   border-radius: 6px;
@@ -80,7 +81,7 @@ a {
 
 .header-button:hover,
 .button:hover {
-  background: #bd6416;
+  background: #843D00;
 }
 
 /* Главный экран */
@@ -95,9 +96,16 @@ a {
   max-width: 1180px;
 }
 
-.hero-label,
-.section-label {
+.hero-label {
   color: var(--orange);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 22px;
+}
+
+.section-label {
+  color: var(--orange-contrast);
   font-size: 13px;
   font-weight: 800;
   letter-spacing: 2px;
@@ -199,7 +207,7 @@ a {
 }
 
 .service-card a {
-  color: var(--orange);
+  color: var(--orange-contrast);
   font-weight: 800;
 }
 
@@ -395,7 +403,7 @@ a {
 }
 
 .portfolio-demo-label {
-  color: var(--orange) !important;
+  color: var(--orange-contrast) !important;
   font-size: 13px;
   font-weight: 800;
   margin-bottom: 10px !important;
@@ -526,7 +534,7 @@ a {
 
 .calculator-preview p {
   margin-bottom: 25px;
-  color: #686d73;
+  color: #5f656c;
 }
 
 /* Подвал */
@@ -581,7 +589,7 @@ a {
 }
 
 .thanks-social a {
-  color: var(--orange);
+  color: var(--orange-contrast);
 }
 
 /* Адаптация для телефонов */
