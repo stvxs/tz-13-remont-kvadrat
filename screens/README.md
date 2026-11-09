@@ -1,5 +1,17 @@
 # Каталог скриншотов и доказательств
 
+## Итоговые подтверждения GA4 и DataLens — 10.11.2026
+
+Период выгрузок GA4 — 06.10–09.11.2026. Для DataLens ниже приведены проверки с фильтром на 09.11.2026.
+
+- [GA4 — сеансы](ga4/explorations/ga4-free-form-instagram-direct-oct06-nov09.png)
+- [GA4 — активные пользователи по сегментам](ga4/explorations/ga4-active-users-instagram-direct-oct06-nov09.png)
+- [GA4 — активные пользователи по всем источникам](ga4/explorations/ga4-active-users-all-sources-oct06-nov09.png)
+- [GA4 — точный фильтр generate_lead](ga4/explorations/ga4-generate-lead-oct06-nov09.png)
+- [DataLens — Трафик, дата и источник](datalens/datalens-traffic-instagram-generate-lead-nov09.png)
+- [DataLens — Заявки, проверка счётчика по дате](datalens/datalens-leads-countd-nov09.png)
+- [DataLens — Кампании, итоговая сводка](datalens/datalens-campaigns-summary-nov09.png)
+
 Этот файл — путеводитель по визуальным материалам проекта «Квадрат Ремонт»: что уже сохранено в репозитории, что подтверждено в ходе работы, но осталось только в переписке, и какие снимки ещё нужно сделать для итоговой сдачи.
 
 ## Как читать статусы
