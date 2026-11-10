@@ -8,9 +8,16 @@
 - [GA4 — активные пользователи по сегментам](ga4/explorations/ga4-active-users-instagram-direct-oct06-nov09.png)
 - [GA4 — активные пользователи по всем источникам](ga4/explorations/ga4-active-users-all-sources-oct06-nov09.png)
 - [GA4 — точный фильтр generate_lead](ga4/explorations/ga4-generate-lead-oct06-nov09.png)
-- [DataLens — Трафик, дата и источник](datalens/datalens-traffic-instagram-generate-lead-nov09.png)
-- [DataLens — Заявки, проверка счётчика по дате](datalens/datalens-leads-countd-nov09.png)
-- [DataLens — Кампании, итоговая сводка](datalens/datalens-campaigns-summary-nov09.png)
+### DataLens для сдачи
+
+- [Трафик за 06.10–09.11](datalens/datalens-traffic-ga4-totals-oct06-nov09.png) и [фильтр на 09.11 по Instagram](datalens/datalens-traffic-instagram-generate-lead-nov09.png).
+- [Все четыре тестовые заявки](datalens/datalens-leads-full-dashboard.png), [три заявки за 09.11](datalens/datalens-leads-full-date-filter-nov09.png) и [фильтр по статусу contract](datalens/datalens-leads-status-filter-contract.png).
+- [Итоговая сводка кампаний за 09.11](datalens/datalens-campaigns-summary-nov09.png). Для И‑09 нужна отдельная демонстрация смены периода.
+
+### Промежуточные кадры DataLens
+
+- [Проверка счётчика заявок](datalens/datalens-leads-countd-nov09.png) повторяет итоговый срез за 09.11.
+- [Две таблицы на вкладке «Кампании»](datalens/datalens-campaigns-linked-period-nov09.png) и [проверка селектора трафика](datalens/datalens-campaigns-traffic-date-filter-nov09.png) показывают диагностику до итоговой сводки.
 
 Этот файл — путеводитель по визуальным материалам проекта «Квадрат Ремонт»: что уже сохранено в репозитории, что подтверждено в ходе работы, но осталось только в переписке, и какие снимки ещё нужно сделать для итоговой сдачи.
 
@@ -76,7 +83,7 @@
 
 ## Матрица доказательств по проекту
 
-План привязан к статусам из `PROJECT_STATUS.md`, описанию событий `docs/events.md` и требованиям, которые нужно подтвердить документами ТЗ. Здесь не утверждается, что каждое название файла буквально прописано в ТЗ: снимки служат наглядными материалами к демонстрации и отчёту.
+План опирается на [отчёт о проверках](../docs/report.md), описание событий `docs/events.md` и требованиям, которые нужно подтвердить документами ТЗ. Здесь не утверждается, что каждое название файла буквально прописано в ТЗ: снимки служат наглядными материалами к демонстрации и отчёту.
 
 | № | Раздел / что показать | Подпись и назначение снимка | Что должно попасть в кадр | Статус / предлагаемый файл |
 |---:|---|---|---|---|
@@ -135,7 +142,7 @@
 ## Подтверждения — 09.11.2026
 
 - U‑01: [профиль](utm/u01-instagram-profile-link.png), [переход](utm/u01-instagram-profile-click.png), [GA4](utm/u01-ga4-realtime-source.png), [заявка](utm/u01-instagram-profile-test-lead.png).
-- U‑02: [Reel](instagram/instagram-reel-published.png), [ответ](instagram/manychat-priemka-test-comment.jpg), [Direct](instagram/manychat-priemka-test-direct.jpg), [заявка](instagram/manychat-priemka-test-lead-utm.png), [GA4](instagram/manychat-priemka-test-ga4-realtime.png).
+- U‑02: [Reel](instagram/instagram-reel-published.png), [ответ](instagram/manychat-priemka-test-comment.jpg), [Direct](instagram/manychat-priemka-test-direct.jpg), [заявка](instagram/manychat-priemka-test-lead-utm.png), [GA4](instagram/manychat-priemka-test-ga4-realtime.png). Кадр страницы благодарности исключён из комплекта сдачи, поскольку на нём виден полный номер заявки.
 - U‑03: [активная ветка](instagram/manychat-sanuzel-live.png). U‑04: [Stories](utm/u04-instagram-story-published.png), [переход](utm/u04-instagram-story-click.png).
 - U‑12: [афиша](../docs/afisha.pdf), [заявка](utm/u12-qr-test-lead.png).
 - DataLens «Заявки»: [общий вид](datalens/datalens-leads-full-dashboard.png), [фильтр даты](datalens/datalens-leads-full-date-filter-nov09.png), [фильтр статуса](datalens/datalens-leads-status-filter-contract.png).
