@@ -51,6 +51,14 @@ function trackMessengerClick(messenger) {
 // form_submit is tracked in contact.js because the form is intercepted and sent with fetch.
 document.addEventListener('click', function(event) {
   const link = event.target.closest('a');
+  if (link && link.dataset.projectId) {
+    trackEvent('project_view', {
+      project_id: link.dataset.projectId,
+      repair_type: link.dataset.repairType
+    });
+  } else if (link && link.dataset.repairType) {
+    trackEvent('repair_type_select', { repair_type: link.dataset.repairType });
+  }
   if (link && link.dataset.contactType) {
     trackContactClick(link.dataset.contactType);
   }

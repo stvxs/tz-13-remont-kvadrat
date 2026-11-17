@@ -32,7 +32,7 @@
 
   <header class="header">
     <div class="container header-inner">
-      <a href="index.html" class="logo">КВАДРАТ РЕМОНТ</a>
+      <a href="index.html" class="logo" aria-current="page">КВАДРАТ РЕМОНТ</a>
 
       <nav class="nav">
         <a href="services.html">Услуги</a>
@@ -43,9 +43,10 @@
         <a href="contacts.html">Контакты</a>
       </nav>
 
-      <a href="calculator.html" class="header-button">
-        Рассчитать ремонт
-      </a>
+      <div class="home-header-actions">
+        <a href="tel:+79003131331" class="header-phone" data-contact-type="phone">+7 (900) 313-13-31</a>
+        <a href="calculator.html" class="header-button">Рассчитать ремонт</a>
+      </div>
     </div>
   </header>
 
@@ -55,13 +56,12 @@
         <p class="hero-label">РЕМОНТ КВАРТИР ПОД КЛЮЧ</p>
 
         <h1>
-          Создаём пространство,
-          <span>в котором хочется жить</span>
+          Смета за 24 часа,
+          <span>фиксированная цена в договоре</span>
         </h1>
 
         <p class="hero-description">
-          Выполняем косметический, капитальный и дизайнерский ремонт квартир.
-          Рассчитайте предварительную стоимость и сроки ремонта онлайн.
+          Выезд сметчика и подготовка сметы бесплатны. Рассчитайте ориентировочную стоимость работ и срок ремонта онлайн.
         </p>
 
         <div class="hero-actions">
@@ -70,7 +70,7 @@
           </a>
 
           <a href="portfolio.html" class="button button-outline">
-            Наши работы
+            Примеры ремонта
           </a>
         </div>
 
@@ -81,8 +81,8 @@
           </div>
 
           <div>
-            <strong>3 вида ремонта</strong>
-            <span>Под разные задачи</span>
+            <strong>Гарантия 3 года</strong>
+            <span>На выполненные работы</span>
           </div>
 
           <div>
@@ -102,19 +102,25 @@
           <article class="service-card">
             <h3>Косметический ремонт</h3>
             <p>Обновление отделки и интерьера без серьёзной перепланировки.</p>
-            <a href="services.html">Подробнее</a>
+            <a href="services.html" data-repair-type="cosmetic">Подробнее</a>
           </article>
 
           <article class="service-card">
             <h3>Капитальный ремонт</h3>
             <p>Комплексное обновление квартиры с заменой основных элементов.</p>
-            <a href="services.html">Подробнее</a>
+            <a href="services.html" data-repair-type="capital">Подробнее</a>
           </article>
 
           <article class="service-card">
             <h3>Дизайнерский ремонт</h3>
             <p>Ремонт с индивидуальным подходом к оформлению пространства.</p>
-            <a href="services.html">Подробнее</a>
+            <a href="services.html" data-repair-type="designer">Подробнее</a>
+          </article>
+
+          <article class="service-card">
+            <h3>Санузел под ключ</h3>
+            <p>Дополнительный ремонт санузла за 180 000 ₽. К сроку ремонта добавляется 10 дней.</p>
+            <a href="services.html#bathroom" data-repair-type="bathroom">Подробнее</a>
           </article>
         </div>
       </div>
@@ -129,11 +135,38 @@
         </a>
       </div>
     </section>
+
+    <section class="services-preview" aria-labelledby="home-projects-title">
+      <div class="container">
+        <h2 id="home-projects-title">Примеры ремонта</h2>
+        <p class="home-projects-note">Учебные примеры с иллюстрациями, созданными нейросетью.</p>
+        <div class="service-cards">
+          <article class="service-card">
+            <img class="portfolio-card-image" src="img/portfolio-demo-cosmetic.webp" alt="Визуализация косметического ремонта" loading="lazy">
+            <h3>Косметический ремонт</h3>
+            <p>Вторичное жильё · 42 м²</p>
+            <a href="portfolio.html#project-demo-cosmetic" data-project-id="demo-cosmetic" data-repair-type="cosmetic" aria-label="Косметический ремонт в портфолио">Смотреть пример</a>
+          </article>
+          <article class="service-card">
+            <img class="portfolio-card-image" src="img/portfolio-demo-capital.webp" alt="Визуализация капитального ремонта" loading="lazy">
+            <h3>Капитальный ремонт</h3>
+            <p>Новостройка · 58 м²</p>
+            <a href="portfolio.html#project-demo-capital" data-project-id="demo-capital" data-repair-type="capital" aria-label="Капитальный ремонт в портфолио">Смотреть пример</a>
+          </article>
+          <article class="service-card">
+            <img class="portfolio-card-image" src="img/portfolio-demo-designer.webp" alt="Визуализация дизайнерского ремонта" loading="lazy">
+            <h3>Дизайнерский ремонт</h3>
+            <p>Вторичное жильё · 76 м²</p>
+            <a href="portfolio.html#project-demo-designer" data-project-id="demo-designer" data-repair-type="designer" aria-label="Дизайнерский ремонт в портфолио">Смотреть пример</a>
+          </article>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">
     <div class="container">
-      <p>© 2026 ООО «Квадрат Ремонт»</p>
+      <p>© 2026 ООО «Квадрат Ремонт»<br>614 150, г. Новоозёрск, ул. Строителей, д. 44, офис 12</p>
       <div class="footer-social" aria-label="Демонстрационные ссылки на социальные сети">
         <span>Ссылки на соцсети:</span>
         <a href="https://www.instagram.com/kvadrat_remont_demo/" data-social="instagram" data-page-section="footer" target="_blank" rel="noopener noreferrer">Instagram</a>

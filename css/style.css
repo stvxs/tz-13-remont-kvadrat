@@ -64,8 +64,24 @@ a {
   font-weight: 600;
 }
 
-.nav a:hover {
+.nav a:hover,
+.header [aria-current="page"] {
   color: var(--orange-contrast);
+}
+
+.home-header-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+
+.header-phone {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  white-space: nowrap;
+  font-weight: 700;
 }
 
 .header-button,
@@ -213,6 +229,28 @@ a {
 
 .service-card a.button {
   color: var(--white);
+}
+
+.bathroom-service {
+  margin-top: 24px;
+  scroll-margin-top: 20px;
+}
+
+.home-projects-note {
+  margin: -18px 0 24px;
+}
+
+.visit-preparation {
+  margin-top: 24px;
+}
+
+.visit-preparation h2 {
+  font-size: clamp(20px, 3vw, 28px);
+  margin-bottom: 8px;
+}
+
+.visit-preparation ul {
+  padding-left: 1.3em;
 }
 
 .contact-details {
@@ -607,6 +645,9 @@ a {
   }
 
   .nav a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
     font-size: 12px;
   }
 
